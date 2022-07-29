@@ -3,8 +3,8 @@ import { useState } from "react";
 
 function App() {
   const [list, setList] = useState([]);
-  const [inputStr, setInputStr] = useState("");
-  // const [wordLength, setWordLength] = useState("");
+  const [inString, setInString] = useState("");
+  const [wordLength, setWordLength] = useState("");
 
   function getComboNum(num, length) {
     if (num < 3) return num;
@@ -19,11 +19,11 @@ function App() {
     return fac;
   }
 
-  function permutator(str) {
+  function permutator(n, str) {
     let result = [];
 
     function permute(arr, m = []) {
-      if (arr.length === 0) {
+      if (arr.length === str.length - n) {
         result.push(m);
       } else {
         for (let i = 0; i < arr.length; i++) {
@@ -35,23 +35,15 @@ function App() {
       }
     }
 
-    permute(str.split(""));
+    permute(str);
 
     return result;
-  }
-
-  function scramble(string, wordLength) {
-    const comboNum = getComboNum(string.length, wordLength);
-
-    console.log(`Generating combos, ${comboNum} possible combinations...`);
-
-    setList(permutator(string));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    scramble(inputStr);
+    setList(permutator(wordLength || inString.length, inString.split("")));
   }
 
   const renderList = list.map((word, idx) => <li key={idx}>{word}</li>);
@@ -60,27 +52,29 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <input
-          onChange={(e) => setInputStr(e.target.value)}
-          value={inputStr}
+          onChange={(e) => setInString(e.target.value)}
+          value={inString}
           type="text"
           placeholder="Enter String"
           required
         ></input>
 
-        {/* <input
-          onChange={(e) => setWordLength(e.target.value)}
+        <input
+          onChange={(e) => setWordLength(parseInt(e.target.value))}
           value={wordLength}
           type="number"
           placeholder="optional"
-        ></input> */}
+        ></input>
         <button type="submit">enter</button>
       </form>
 
       <p>
-        {inputStr
-          ? getComboNum(inputStr.length) + " Possible Combinations"
+        {inString
+          ? getComboNum(inString.length) + " Possible Combinations"
           : "Hey"}
       </p>
+
+      {list.length > 0 && <p>Generated {list.length} results.</p>}
 
       <ul>{renderList}</ul>
     </div>
