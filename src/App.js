@@ -53,11 +53,15 @@ function App() {
 
   return (
     <div className="App">
+      <p>Enter up to 10 letters</p>
       <form onSubmit={handleSubmit}>
         <input
-          onChange={(e) => setInString(e.target.value)}
+          onChange={(e) => setInString(e.target.value.toLowerCase())}
           value={inString}
+          maxLength="10"
           type="text"
+          pattern="[a-zA-Z]+"
+          title="Only letters"
           placeholder="Enter String"
           required
         ></input>
@@ -65,6 +69,8 @@ function App() {
         <input
           onChange={(e) => setWordLength(parseInt(e.target.value))}
           value={wordLength}
+          min="1"
+          max="10"
           type="number"
           placeholder="optional"
         ></input>
