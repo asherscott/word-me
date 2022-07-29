@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import dictonary from "./dictonary.json";
 
 function App() {
   const [list, setList] = useState([]);
@@ -24,7 +25,9 @@ function App() {
 
     function permute(arr, m = []) {
       if (arr.length === str.length - n) {
-        result.push(m);
+        if (dictonary[m.join("")]) {
+          result.push(m);
+        }
       } else {
         for (let i = 0; i < arr.length; i++) {
           let curr = [...arr];
