@@ -1,26 +1,39 @@
 import "./App.css";
 import { useState } from "react";
 import dictonary from "./dictonary.json";
+import RenderList from "./RenderList";
 
 function App() {
   const [list, setList] = useState([]);
   const [letters, setLetters] = useState("");
-  const [wordLength, setWordLength] = useState("");
 
-  const renderList = list.map((word, idx) => <li key={idx}>{word}</li>);
+  const renderLists = list.map((words, idx) => {
+    if (words.length > 0) {
+      return (
+        <div key={idx}>
+          <p>{words[0].length} Letter Words</p>
+          <RenderList words={words} />
+        </div>
+      );
+    }
+  });
 
-  function getComboNum(num, length) {
+  const resultNum = list.reduce(
+    (wordSum, currList) => currList.length + wordSum,
+    0
+  );
+
+  const comboNum = (num) => {
     if (num < 3) return num;
 
-    let current = num;
     let fac = 1;
-    while (current > num - (length || num)) {
-      fac *= current;
-      current--;
+    while (num > 0) {
+      fac *= num;
+      num--;
     }
 
     return fac;
-  }
+  };
 
   function permutator(n, str) {
     let result = [];
@@ -45,13 +58,25 @@ function App() {
     return result;
   }
 
+  function createLists() {
+    let newList = [];
+    let wordLength = letters.length;
+
+    while (wordLength > 1) {
+      const defaultList = permutator(wordLength, letters.split(""));
+      const uniqueList = [...new Set(defaultList)];
+
+      newList = [...newList, uniqueList];
+      wordLength--;
+    }
+
+    return newList;
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    const newList = permutator(wordLength || letters.length, letters.split(""));
-    const uniqueList = [...new Set(newList)];
-
-    setList(uniqueList);
+    setList(createLists);
   }
 
   return (
@@ -68,27 +93,14 @@ function App() {
           placeholder="Enter String"
           required
         ></input>
-
-        <input
-          onChange={(e) => setWordLength(parseInt(e.target.value))}
-          value={wordLength}
-          min="1"
-          max="10"
-          type="number"
-          placeholder="optional"
-        ></input>
         <button type="submit">enter</button>
       </form>
 
-      <p>
-        {letters
-          ? getComboNum(letters.length) + " Possible Combinations"
-          : "Hey"}
-      </p>
+      <p>{comboNum(letters.length)} Possible Combinations</p>
 
-      {list.length > 0 && <p>Generated {list.length} results.</p>}
+      <p>Generated {resultNum} results.</p>
 
-      <ul>{renderList}</ul>
+      <div>{renderLists}</div>
     </div>
   );
 }
