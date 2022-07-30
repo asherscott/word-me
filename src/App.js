@@ -4,17 +4,19 @@ import dictonary from "./dictonary.json";
 
 function App() {
   const [list, setList] = useState([]);
-  const [inString, setInString] = useState("");
+  const [letters, setLetters] = useState("");
   const [wordLength, setWordLength] = useState("");
+
+  const renderList = list.map((word, idx) => <li key={idx}>{word}</li>);
 
   function getComboNum(num, length) {
     if (num < 3) return num;
 
-    let i = num;
+    let current = num;
     let fac = 1;
-    while (i > num - (length || num)) {
-      fac *= i;
-      i--;
+    while (current > num - (length || num)) {
+      fac *= current;
+      current--;
     }
 
     return fac;
@@ -26,7 +28,7 @@ function App() {
     function permute(arr, m = []) {
       if (arr.length === str.length - n) {
         if (dictonary[m.join("")]) {
-          result.push(m);
+          result.push(m.join(""));
         }
       } else {
         for (let i = 0; i < arr.length; i++) {
@@ -46,18 +48,19 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    setList(permutator(wordLength || inString.length, inString.split("")));
-  }
+    const newList = permutator(wordLength || letters.length, letters.split(""));
+    const uniqueList = [...new Set(newList)];
 
-  const renderList = list.map((word, idx) => <li key={idx}>{word}</li>);
+    setList(uniqueList);
+  }
 
   return (
     <div className="App">
       <p>Enter up to 10 letters</p>
       <form onSubmit={handleSubmit}>
         <input
-          onChange={(e) => setInString(e.target.value.toLowerCase())}
-          value={inString}
+          onChange={(e) => setLetters(e.target.value.toLowerCase())}
+          value={letters}
           maxLength="10"
           type="text"
           pattern="[a-zA-Z]+"
@@ -78,8 +81,8 @@ function App() {
       </form>
 
       <p>
-        {inString
-          ? getComboNum(inString.length) + " Possible Combinations"
+        {letters
+          ? getComboNum(letters.length) + " Possible Combinations"
           : "Hey"}
       </p>
 
