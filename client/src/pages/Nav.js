@@ -19,7 +19,7 @@ function Nav() {
           background: "darkblue",
         }}
       >
-        Home
+        Word-Me!
       </NavLink>
       <NavLink
         to="/login"

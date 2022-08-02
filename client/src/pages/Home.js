@@ -88,7 +88,7 @@ function Home({ list, setList, dictonary }) {
           title="Only letters"
           placeholder="Enter String"
           required
-        ></input>
+        />
         <button type="submit">enter</button>
       </form>
 
