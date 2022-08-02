@@ -25,7 +25,7 @@ function App() {
           <Words />
         </Route>
         <Route path="/">
-          <Home list={list} setList={setList} dictonary={dictonary} />;
+          <Home list={list} setList={setList} dictonary={dictonary} />
         </Route>
       </Switch>
     </>
