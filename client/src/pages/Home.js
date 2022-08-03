@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RenderList from "../RenderList";
+import "../Home.css";
 
 function Home({ list, setList, dictonary }) {
   const [letters, setLetters] = useState("");
@@ -76,7 +77,7 @@ function Home({ list, setList, dictonary }) {
     setList(createLists);
   }
   return (
-    <div className="Home">
+    <div id="Home">
       <p>Enter up to 10 letters</p>
       <form onSubmit={handleSubmit}>
         <input
@@ -93,6 +94,7 @@ function Home({ list, setList, dictonary }) {
       </form>
 
       <p>{comboNum(letters.length)} Possible Combinations</p>
+      <p>Generating Words...</p>
 
       <p>Generated {resultNum} results.</p>
 

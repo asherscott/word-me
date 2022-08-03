@@ -1,70 +1,76 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import "./Nav.css";
 
 function Nav() {
-  const [showtabs, setShowTabs] = useState(false);
   const linkStyles = {
-    display: "inline-block",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     padding: "12px",
     background: "blue",
     textDecoration: "none",
     color: "white",
   };
+  const logoStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "12px",
+    background: "blue",
+    textDecoration: "none",
+    color: "white",
+    fontSize: "3rem",
+  };
+  const renderNav = (
+    <nav>
+      <NavLink
+        to="/login"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Login
+      </NavLink>
+      <NavLink
+        to="/words"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Word Lists
+      </NavLink>
+      <NavLink
+        to="/lists"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Missing a Word?
+      </NavLink>
+    </nav>
+  );
 
   return (
-    <nav>
-      <div className="tab-home">
-        <NavLink
-          to="/"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Word-Me!
-        </NavLink>
-        <button className="display-tabs" onClick={() => setShowTabs(!showtabs)}>
-          {showtabs ? "hide" : "show"}
-        </button>
-      </div>
+    <header>
+      <NavLink
+        to="/"
+        exact
+        style={logoStyle}
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        Word-Me!
+      </NavLink>
 
-      {showtabs && (
-        <div className="tabs">
-          <NavLink
-            to="/login"
-            exact
-            style={linkStyles}
-            activeStyle={{
-              background: "darkblue",
-            }}
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to="/words"
-            exact
-            style={linkStyles}
-            activeStyle={{
-              background: "darkblue",
-            }}
-          >
-            Word Lists
-          </NavLink>
-          <NavLink
-            to="/lists"
-            exact
-            style={linkStyles}
-            activeStyle={{
-              background: "darkblue",
-            }}
-          >
-            Missing a Word?
-          </NavLink>
-        </div>
-      )}
-    </nav>
+      {renderNav}
+    </header>
   );
 }
 
