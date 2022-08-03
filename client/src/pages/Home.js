@@ -77,29 +77,37 @@ function Home({ list, setList, dictonary }) {
     setList(createLists);
   }
   return (
-    <div id="Home">
-      <p>Enter up to 10 letters</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={(e) => setLetters(e.target.value.toLowerCase())}
-          value={letters}
-          maxLength="10"
-          type="text"
-          pattern="[a-zA-Z]+"
-          title="Only letters"
-          placeholder="Enter String"
-          required
-        />
-        <button type="submit">enter</button>
-      </form>
+    <main id="Home">
+      <section id="Input" className="home-section">
+        <div>
+          <p>Enter up to 10 letters</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={(e) => setLetters(e.target.value.toLowerCase())}
+              value={letters}
+              maxLength="10"
+              type="text"
+              pattern="[a-zA-Z]+"
+              title="Only letters"
+              placeholder="Enter Letters"
+              required
+            />
+            <button type="submit">enter</button>
+          </form>
 
-      <p>{comboNum(letters.length)} Possible Combinations</p>
-      <p>Generating Words...</p>
+          <p className="small-text">
+            {comboNum(letters.length)} Possible Combinations
+          </p>
+          <p className="small-text">Generating Words...</p>
+        </div>
+      </section>
 
-      <p>Generated {resultNum} results.</p>
+      <section id="Output" className="home-section">
+        <p>Generated {resultNum} results.</p>
 
-      <div>{renderLists}</div>
-    </div>
+        <div>{renderLists}</div>
+      </section>
+    </main>
   );
 }
 
