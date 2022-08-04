@@ -18,7 +18,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/lists">
+        <Route path="/word-lists">
           <Lists />
         </Route>
         <Route path="/words">

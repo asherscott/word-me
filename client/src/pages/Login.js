@@ -53,6 +53,10 @@ function Login() {
           Login
         </button>
       </form>
+
+      <div className="small-text">
+        <p>Accounts are used to add words to our list.</p>
+      </div>
     </main>
   );
 }

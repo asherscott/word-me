@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RenderList from "../RenderList";
-import "../Home.css";
+import "./Home.css";
 
 function Home({ list, setList, dictonary }) {
   const [letters, setLetters] = useState("");

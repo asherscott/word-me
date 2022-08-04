@@ -1,5 +1,6 @@
 #Login {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
@@ -49,4 +50,11 @@ button.login-input:hover {
 .login-label {
   margin-top: 1rem;
   padding-left: 2rem;
+}
+
+#Login .small-text {
+  width: 40vw;
+  max-width: 400px;
+
+  padding-left: 1rem;
 }

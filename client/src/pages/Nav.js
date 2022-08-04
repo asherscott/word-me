@@ -19,7 +19,7 @@ function Nav() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/lists" exact style={linkStyles}>
+        <NavLink to="/word-lists" exact style={linkStyles}>
           Word Lists
         </NavLink>
       </li>

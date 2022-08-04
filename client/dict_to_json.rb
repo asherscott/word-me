@@ -1,6 +1,6 @@
 require 'json'
 
-default = open("dictonary.txt")
+default = open("../public/lists/dictonary.txt")
 write_to = open("./src/dictonary.json", 'w')
 
 arr = default.read.split(' ')
