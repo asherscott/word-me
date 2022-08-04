@@ -1,5 +1,6 @@
 :root {
   --large: 100vw;
+  --light-green: rgb(213, 234, 176);
   --green: rgb(203, 229, 156);
   --greener: rgb(155, 224, 186);
   --blue: rgb(153, 201, 239);
@@ -22,9 +23,16 @@ button {
   min-height: 100vh;
 }
 
-@media screen and (min-width: 1230px) {
+/* ==============MEDIA============== */
+
+.wrapper,
+#Output {
+  max-width: 1230px;
+}
+
+@media screen and (max-width: 1260px) {
   .wrapper,
   #Output {
-    max-width: 1230px;
+    max-width: calc(100% - 2rem);
   }
 }

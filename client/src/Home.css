@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 
 .home-section {
@@ -19,20 +20,28 @@
 #Input {
   background-color: var(--blue);
   height: calc(100vh - 8rem);
+  flex-grow: 1;
 }
 
 .home-input,
 .home-btn {
   height: 4rem;
   border: none;
-  background-color: var(--green);
   outline: none;
+
+  background-color: var(--green);
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.4);
 }
 
 .home-input {
+  width: 40vw;
+
   border-radius: 6rem 0 0 6rem;
   padding: 0 0 0 1rem;
+}
+
+.home-input:focus {
+  background-color: var(--light-green);
 }
 
 .home-btn {
@@ -64,8 +73,9 @@
   margin: 0;
 }
 
-#Input input {
-  width: 40vw;
+#Output {
+  min-height: 100vh;
+  justify-content: flex-start;
 }
 
 .result-num,

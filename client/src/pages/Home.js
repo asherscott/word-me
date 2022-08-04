@@ -112,16 +112,18 @@ function Home({ list, setList, dictonary }) {
 
           <div className="small-text">
             <p>{comboNum(letters.length)} Possible Combinations</p>
-            <p>Generating Words...</p>
+            {/* <p>Generating Words...</p> */}
           </div>
         </div>
       </section>
 
-      <section id="Output" className="home-section">
-        <h4 className="result-num">Generated {resultNum} results.</h4>
+      {list[0] && (
+        <section id="Output" className="home-section">
+          <h4 className="result-num">Generated {resultNum} results.</h4>
 
-        {renderLists}
-      </section>
+          {renderLists}
+        </section>
+      )}
     </main>
   );
 }

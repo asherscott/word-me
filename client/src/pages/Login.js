@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -12,35 +13,47 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        onChange={(e) => setUsername(e.target.value)}
-        value={username}
-        name="username"
-        type="text"
-        placeholder="Username"
-        required
-      />
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-        name="password"
-        type="password"
-        placeholder="Password"
-        minLength="6"
-        required
-      />
-      <input
-        onChange={(e) => setConfirm(e.target.value)}
-        value={confirm}
-        name="confirm"
-        type="password"
-        placeholder="Confirm Password"
-        minLength="6"
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <main id="Login">
+      <form onSubmit={handleLogin}>
+        <label className="login-label">Login</label>
+        <input
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+          className="login-input"
+          name="username"
+          type="text"
+          placeholder="Username"
+          required
+        />
+
+        <label className="login-label">Password</label>
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          className="login-input"
+          name="password"
+          type="password"
+          placeholder="Password"
+          minLength="6"
+          required
+        />
+
+        <label className="login-label">Confirm Password</label>
+        <input
+          onChange={(e) => setConfirm(e.target.value)}
+          value={confirm}
+          className="login-input"
+          name="confirm"
+          type="password"
+          placeholder="Confirm Password"
+          minLength="6"
+          required
+        />
+        <button type="submit" className="login-input">
+          Login
+        </button>
+      </form>
+    </main>
   );
 }
 
