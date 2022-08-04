@@ -1,7 +1,11 @@
 #Home {
-  background-color: bisque;
+  background-color: var(--greener);
   width: 100%;
   max-width: var(--large);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-section {
@@ -13,25 +17,81 @@
 }
 
 #Input {
-  background-color: antiquewhite;
+  background-color: var(--blue);
   height: calc(100vh - 8rem);
 }
 
-#Input input,
-#Input button {
+.home-input,
+.home-btn {
   height: 4rem;
-  border: 1px solid black;
+  border: none;
+  background-color: var(--green);
+  outline: none;
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+.home-input {
+  border-radius: 6rem 0 0 6rem;
+  padding: 0 0 0 1rem;
+}
+
+.home-btn {
+  border-radius: 0 3rem 3rem 0;
+  background-color: var(--greener);
+  width: 4rem;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-btn:hover svg {
+  transform: translateX(5px);
+  transition: 0.3s;
 }
 
 .small-text {
+  margin-top: 8px;
+}
+
+#Input p {
+  padding-left: 1rem;
+}
+
+.small-text p {
   font-size: small;
   margin: 0;
 }
 
-#Input form * {
-  font-size: 1.5rem;
-}
-
 #Input input {
   width: 40vw;
+}
+
+.result-num,
+.list-item,
+#Output h4 {
+  width: 100%;
+  background-color: var(--blue);
+  margin: 1rem 0;
+}
+
+#Output h4 {
+  margin-top: 2rem;
+}
+
+.list-item:last-child {
+  margin-bottom: 2rem;
+}
+
+.list-item h5 {
+  background-color: var(--green);
+}
+
+#Output h5 {
+  margin: 0;
+}
+
+form {
+  display: flex;
 }

@@ -8,8 +8,8 @@ function Home({ list, setList, dictonary }) {
   const renderLists = list.map((words, idx) => {
     if (words.length > 0) {
       return (
-        <div key={idx}>
-          <p>{words[0].length} Letter Words</p>
+        <div key={idx} className="list-item">
+          <h5>{words[0].length} Letter Words</h5>
           <RenderList words={words} />
         </div>
       );
@@ -85,6 +85,7 @@ function Home({ list, setList, dictonary }) {
             <input
               onChange={(e) => setLetters(e.target.value.toLowerCase())}
               value={letters}
+              className="home-input"
               maxLength="10"
               type="text"
               pattern="[a-zA-Z]+"
@@ -92,20 +93,34 @@ function Home({ list, setList, dictonary }) {
               placeholder="Enter Letters"
               required
             />
-            <button type="submit">enter</button>
+            <button type="submit" className="home-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+            </button>
           </form>
 
-          <p className="small-text">
-            {comboNum(letters.length)} Possible Combinations
-          </p>
-          <p className="small-text">Generating Words...</p>
+          <div className="small-text">
+            <p>{comboNum(letters.length)} Possible Combinations</p>
+            <p>Generating Words...</p>
+          </div>
         </div>
       </section>
 
       <section id="Output" className="home-section">
-        <p>Generated {resultNum} results.</p>
+        <h4 className="result-num">Generated {resultNum} results.</h4>
 
-        <div>{renderLists}</div>
+        {renderLists}
       </section>
     </main>
   );
