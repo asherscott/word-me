@@ -23,7 +23,6 @@ button.login-input {
   padding: 0;
 }
 
-.login-input:focus,
 button.login-input:hover {
   background-color: var(--light-green);
 }
