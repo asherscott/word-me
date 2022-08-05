@@ -19,7 +19,7 @@ function App() {
           <Login />
         </Route>
         <Route path="/word-lists">
-          <Lists />
+          <Lists dictonary={dictonary} />
         </Route>
         <Route path="/words">
           <Words />

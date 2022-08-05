@@ -1,18 +1,23 @@
 #Lists {
-  background-color: var(--blue);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  justify-content: flex-start;
 }
 
 #Lists p {
+  margin: 0%;
+  padding: 0 0 1rem 0;
   background-color: var(--greener);
-  margin: 0;
 }
 
-#Lists h5 {
-  margin: 0;
+.list-preview {
+  display: flex;
+}
+
+.list-preview p:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.list-preview p:last-child {
+  flex-grow: 1;
+  white-space: nowrap;
 }

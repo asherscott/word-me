@@ -14,6 +14,11 @@ function Nav() {
   const renderNav = (
     <ul>
       <li>
+        <NavLink to="/" exact style={linkStyles}>
+          Home
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/login" exact style={linkStyles}>
           Login
         </NavLink>

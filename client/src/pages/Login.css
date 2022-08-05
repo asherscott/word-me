@@ -1,49 +1,30 @@
-#Login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  width: 100%;
-
-  background-color: var(--blue);
-}
-
 #Login form {
   display: flex;
   flex-direction: column;
 
-  background-color: var(--greener);
+  margin: 8px;
+
   border-radius: 2rem;
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+
+  background-color: var(--greener);
 }
 
 .login-input {
-  height: 4rem;
-  width: 40vw;
   max-width: 400px;
+  min-width: 250px;
 
-  border: none;
-  outline: none;
-  background-color: var(--green);
-
-  border-radius: 6rem;
-  padding-left: 1rem;
   margin: 0.5rem 1rem;
-  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.4);
-}
-
-.login-input:focus {
-  background-color: var(--light-green);
+  border-radius: 6rem;
 }
 
 button.login-input {
   margin: 2rem 1rem;
+  padding: 0;
 }
 
+.login-input:focus,
 button.login-input:hover {
-  margin: 2rem 1rem;
-
   background-color: var(--light-green);
 }
 
@@ -55,6 +36,4 @@ button.login-input:hover {
 #Login .small-text {
   width: 40vw;
   max-width: 400px;
-
-  padding-left: 1rem;
 }

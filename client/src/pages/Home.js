@@ -76,12 +76,13 @@ function Home({ list, setList, dictonary }) {
 
     setList(createLists);
   }
+
   return (
     <main id="Home">
       <section id="Input" className="home-section">
         <div>
-          <p>Enter up to 10 letters</p>
-          <form onSubmit={handleSubmit}>
+          <label>Enter up to 10 letters</label>
+          <form onSubmit={handleSubmit} className="letter-form">
             <input
               onChange={(e) => setLetters(e.target.value.toLowerCase())}
               value={letters}
@@ -109,19 +110,23 @@ function Home({ list, setList, dictonary }) {
               </svg>
             </button>
           </form>
-
           <div className="small-text">
-            <p>{comboNum(letters.length)} Possible Combinations</p>
-            {/* <p>Generating Words...</p> */}
+            <p>
+              {comboNum(letters.length).toLocaleString()} Possible Combinations
+            </p>
           </div>
         </div>
       </section>
 
       {list[0] && (
         <section id="Output" className="home-section">
-          <h4 className="result-num">Generated {resultNum} results.</h4>
+          <div className="wrapper main-wrapper">
+            <h4 className="result-num">
+              Generated {resultNum.toLocaleString()} results.
+            </h4>
 
-          {renderLists}
+            {renderLists}
+          </div>
         </section>
       )}
     </main>
