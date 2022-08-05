@@ -1,0 +1,41 @@
+#Words {
+  justify-content: flex-start;
+}
+
+.word-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.word-form * {
+  margin: 1rem;
+  border-radius: 0;
+  background-color: var(--greener);
+}
+
+.container {
+  width: 100%;
+  background-color: var(--green);
+}
+
+div.words-title {
+  align-items: flex-start;
+  width: 100%;
+  margin: 1rem;
+
+  background-color: var(--green);
+}
+
+.words-title div {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-form {
+  height: auto;
+  width: 100%;
+
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}

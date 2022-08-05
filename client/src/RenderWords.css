@@ -1,0 +1,17 @@
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.word {
+  margin: 1rem;
+}
+
+.word span {
+  padding: 0 10px;
+}

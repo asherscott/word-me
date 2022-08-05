@@ -1,18 +1,18 @@
 require 'json'
 
-default = open("../public/lists/dictonary.txt")
-write_to = open("./src/dictonary.json", 'w')
+dict_txt = open("../public/lists/dictonary.txt")
+dict_json = open("./src/dictonary.json", 'w')
 
-arr = default.read.split(' ')
+list = dict_txt.read.split(' ')
 
 output = {}
-arr.each do |word|
+list.each do |word|
     if (word.length < 11 && !word[/[^a-z]/i]) 
         output[word.downcase] = word.downcase
     end
 end
 
-write_to.write(output.to_json)
+dict_json.write(output.to_json)
 
-write_to.close
-default.close
+dict_json.close
+dict_txt.close
